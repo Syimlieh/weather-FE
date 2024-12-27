@@ -1,3 +1,4 @@
+// selecting element
 const locationSelect = document.getElementById("location-select");
 const locationInput = document.getElementById("location-input");
 const searchBtn = document.getElementById("search-button");
@@ -8,10 +9,12 @@ document.getElementById("current-location-button").addEventListener("click", fet
 
 const weatherStorage = JSON.parse(localStorage.getItem('weather')) || [];
 
+// Base url ffrom weatherapi
 const BASE_URL = 'http://api.weatherapi.com/v1';
 
 const apiKey = 'your api key here';
 
+// For our dropdown option using datalist with input
 function checkWeatherStorage() {
     cityOptions.innerHTML = "";
     if (weatherStorage.length) {
@@ -25,6 +28,7 @@ function checkWeatherStorage() {
 }
 checkWeatherStorage()
 
+// Event when clicking on search weather forecast by input city name
 searchBtn.addEventListener("click", async () => {
     const cityName = locationInput.value.trim().toLowerCase();
     if (!cityName) {
@@ -54,13 +58,14 @@ searchBtn.addEventListener("click", async () => {
     }
 })
 
+// update weather UI for current day 
 function updateWeatherUI(data) {
 
     document.getElementById("cityName").textContent = data.location.name;
     document.getElementById("currentDate").textContent = data.location.localtime;
     document.getElementById("temperature").textContent = data.current.temp_c + " °C";
     document.getElementById("windSpeed").textContent = data.current.wind_kph + " km/h";
-    document.getElementById("humidity").textContent = data.current.humidity + "%";
+    document.getElementById("humidity").textContent = data.current.humidity + " %";
     const conditionText = document.getElementById("condition");
     conditionText.textContent = data.current.condition.text;
 
@@ -115,6 +120,7 @@ async function forecastApi(query) {
     }
 }
 
+// update 5 day forecast UI
 function updateForecastUI(data) {
     const forecastContainer = document.getElementById('forecast-container');
     forecastContainer.innerHTML = "";
@@ -137,6 +143,7 @@ function updateForecastUI(data) {
             dayContainer.classList.add("bg-gray-200");
         }
 
+        // dynamicaly adding item for 5 day forecast 
         const forecastDay = document.createElement("p");
         forecastDay.classList.add("text-sm", "font-medium", "text-gray-600");
         forecastDay.textContent = item.date;
@@ -144,7 +151,7 @@ function updateForecastUI(data) {
 
         const forecastIcon = document.createElement("img");
         forecastIcon.classList.add("w-10", "h-10");
-        forecastIcon.src = item.day.condition.icon; // Assuming this contains a valid image URL
+        forecastIcon.src = item.day.condition.icon;
         forecastIcon.alt = item.day.condition.text;
         dayContainer.appendChild(forecastIcon)
 
@@ -168,6 +175,7 @@ function updateForecastUI(data) {
 }
 
 function fetchCurrentLocationWeather() {
+    // Using browser inbuild geolocation
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             async (position) => {
@@ -175,6 +183,7 @@ function fetchCurrentLocationWeather() {
                 const lon = position.coords.longitude;
 
                 try {
+                    // searching forecast based on latitute and longitute 
                     const weatherData = await forecastApi({ lat, lon });
                     updateWeatherUI(weatherData);
                     updateForecastUI(weatherData);
