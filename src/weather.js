@@ -9,7 +9,7 @@ const weatherStorage = JSON.parse(localStorage.getItem('weather')) || [];
 
 const BASE_URL = 'http://api.weatherapi.com/v1';
 
-const apiKey = 'e079c42969824ef389521854242412';
+const apiKey = 'your api key here';
 
 function checkWeatherStorage() {
     cityOptions.innerHTML = "";
