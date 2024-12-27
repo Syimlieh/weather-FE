@@ -2,6 +2,7 @@ const locationSelect = document.getElementById("location-select");
 const locationInput = document.getElementById("location-input");
 const searchBtn = document.getElementById("search-button");
 const cityOptions = document.getElementById("city-options");
+const loading = document.getElementById("loading");
 
 document.getElementById("current-location-button").addEventListener("click", fetchCurrentLocationWeather);
 
@@ -82,9 +83,11 @@ function updateWeatherUI(data) {
 }
 
 async function forecastApi(query) {
+    loading.classList.remove("hidden");
+    loading.classList.add('flex');
+
     const forecastURL = "/forecast.json";
     let URL;
-
     if (typeof query === "string") {
         // Query is a city name
         URL = `${BASE_URL}${forecastURL}?key=${apiKey}&q=${encodeURIComponent(query)}&days=5`;
@@ -104,8 +107,10 @@ async function forecastApi(query) {
             throw new Error(errorMessage);
         }
         const result = await response.json();
+        loading.classList.add("hidden");
         return result;
     } catch (error) {
+        loading.classList.add("hidden");
         throw error;
     }
 }

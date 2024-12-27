@@ -558,8 +558,20 @@ html {
   font-family: "Lexend", sans-serif;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
+}
+
+.left-1\/2 {
+  left: 50%;
+}
+
+.top-1\/2 {
+  top: 50%;
 }
 
 .m-auto {
@@ -605,6 +617,10 @@ html {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -626,6 +642,14 @@ html {
   height: min-content;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
+.w-11 {
+  width: 2.75rem;
+}
+
 .w-12 {
   width: 3rem;
 }
@@ -642,8 +666,26 @@ html {
   width: 100%;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
+.-translate-x-1\/2 {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .grid-cols-1 {
@@ -735,6 +777,10 @@ html {
 
 .to-gray-800 {
   --tw-gradient-to: #1f2937 var(--tw-gradient-to-position);
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .p-4 {
@@ -841,6 +887,23 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.loader {
+  aspect-ratio: 1;
+  background: 
+    linear-gradient(#1f293700 calc(1*100%/6), #1f2937 0 calc(3*100%/6), #1f293700 0) left bottom,
+    linear-gradient(#1f293700 calc(2*100%/6), #1f2937 0 calc(4*100%/6), #1f293700 0) center bottom,
+    linear-gradient(#1f293700 calc(3*100%/6), #1f2937 0 calc(5*100%/6), #1f293700 0) right bottom;
+  background-size: 20% 600%;
+  background-repeat: no-repeat;
+  animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+  100% {
+    background-position: left top,center top,right top
+  }
 }
 
 .hover\:-translate-y-\[3px\]:hover {
