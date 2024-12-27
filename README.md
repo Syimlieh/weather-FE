@@ -12,6 +12,8 @@ Technology used:
 Setup instruction:
     git clone: git clone https://github.com/Syimlieh/weather-FE.git
 
+    Open terminal on cloned repo directory and run npm install to install neccessary dependency
+
     Obtain an API key from the weather API provider: https://www.weatherapi.com/my/
 
     Replace the key in file weather.js with your key
