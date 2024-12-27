@@ -1,5 +1,7 @@
 Weather Forecast Application
 
+Video Demo: https://www.loom.com/share/bf797608f6474ed9af50b09de9129cfd?sid=9adb69d6-d433-409a-9be0-247d6346e6b9
+
 This Weather Forecast Application provides real-time weather updates and a 5-day forecast for any city. Users can search for weather data by city name or use their current location to get weather details. The application maintains a search history and ensures a smooth user experience with visually appealing design and responsive UI components.
 
 Technology used:
