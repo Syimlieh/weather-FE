@@ -44,11 +44,6 @@
                         class=" w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         id="location-input" />
                         <datalist id="city-options"></datalist>
-                    <!-- <select
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hidden"
-                        id="location-select">
-                        <option value="" disabled selected>Select a city...</option>
-                    </select> -->
                     <button
                         class="bg-indigo-950 text-white px-4 py-2 rounded-lg hover:bg-indigo-900 hover:-translate-y-[3px] transition"
                         id="search-button">
@@ -68,7 +63,7 @@
             <section class="w-full lg:w-4/6 h-auto bg-white shadow-lg rounded-lg p-6">
                 <div>
                     <h2 class="text-xl font-semibold text-gray-700 mb-4">Current Weather</h2>
-                    <div class="flex justify-between items-center bg-blue-100 p-4 rounded-lg shadow-inner">
+                    <div class="flex flex-col md:flex-row justify-between items-center bg-blue-100 p-4 rounded-lg shadow-inner">
                         <div>
                             <h3 class="text-xl lg:text-2xl font-bold text-gray-800 mb-4" id="cityName">City Name</h3>
                             <div class="flex gap-4 flex-col justify-start">

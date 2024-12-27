@@ -118,16 +118,24 @@ async function forecastApi(query) {
 function updateForecastUI(data) {
     const forecastContainer = document.getElementById('forecast-container');
     forecastContainer.innerHTML = "";
-    data.forecast.forecastday.forEach((item) => {
+    data.forecast.forecastday.forEach((item, index) => {
         const dayContainer = document.createElement("div");
         dayContainer.classList.add(
-            "grid",
-            "grid-cols-1",
-            "sm:grid-cols-2",
-            "lg:grid-cols-5",
+            "flex",
+            "justify-between",
+            "flex-wrap",
+            "items-center",
             "gap-4",
-            "mb-4"
+            "mb-4",
+            "p-4",
+            "rounded-lg",
         );
+
+        if (index % 2 === 0) {
+            dayContainer.classList.add("bg-gray-100");
+        } else {
+            dayContainer.classList.add("bg-gray-200");
+        }
 
         const forecastDay = document.createElement("p");
         forecastDay.classList.add("text-sm", "font-medium", "text-gray-600");
@@ -135,7 +143,7 @@ function updateForecastUI(data) {
         dayContainer.appendChild(forecastDay)
 
         const forecastIcon = document.createElement("img");
-        forecastIcon.classList.add("w-12", "h-12", "m-auto");
+        forecastIcon.classList.add("w-10", "h-10");
         forecastIcon.src = item.day.condition.icon; // Assuming this contains a valid image URL
         forecastIcon.alt = item.day.condition.text;
         dayContainer.appendChild(forecastIcon)
@@ -156,7 +164,6 @@ function updateForecastUI(data) {
         dayContainer.appendChild(forecastHumidity)
 
         forecastContainer.appendChild(dayContainer);
-
     })
 }
 
