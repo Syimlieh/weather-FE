@@ -14,10 +14,7 @@ Setup instruction:
 
     Open terminal on cloned repo directory and run npm install to install neccessary dependency
 
-    Obtain an API key from the weather API provider: https://www.weatherapi.com/my/
-
-    Replace the key in file weather.js with your key
-    const apiKey = 'api key here';
+    Obtain an API key from the weather API provider: https://www.weatherapi.com/my/ (no need for this step anymore. Key already added)
 
     open the file index.html and run the application using live server extension
 

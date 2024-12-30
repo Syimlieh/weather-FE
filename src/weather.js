@@ -12,7 +12,7 @@ const weatherStorage = JSON.parse(localStorage.getItem('weather')) || [];
 // Base url ffrom weatherapi
 const BASE_URL = 'http://api.weatherapi.com/v1';
 
-const apiKey = 'your api key here';
+const apiKey = 'e079c42969824ef389521854242412';
 
 // For our dropdown option using datalist with input
 function checkWeatherStorage() {
